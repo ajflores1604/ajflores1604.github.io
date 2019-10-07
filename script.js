@@ -32,8 +32,14 @@ function handleMotionEvent(event) {
 //     if 
 //     el.style.background = `blue`;
 // }
-
-window.addEventListener('devicemotion', handleMotionEvent, true);
+DeviceMotionEvent.requestPermission()
+.then(response => {
+  if (response == 'granted') {
+    window.addEventListener('devicemotion', handleMotionEvent, true)
+  }
+})
+.catch(console.error)
+// window.addEventListener('devicemotion', handleMotionEvent, true);
 // window.addEventListener('devicelight', handleLightEvent);
 var stereoPanner = new Pizzicato.Effects.StereoPanner({
     pan: 0.0
