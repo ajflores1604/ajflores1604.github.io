@@ -52,14 +52,15 @@ function onClick() {
 var stereoPanner = new Pizzicato.Effects.StereoPanner({
     pan: 0.0
 });
-var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
-    // Sound loaded!
-    acousticGuitar.addEffect(stereoPanner);
-//     acousticGuitar.play();
-});
+
 
 function playMusic(){
+    var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
+    // Sound loaded!
+    acousticGuitar.addEffect(stereoPanner);
     acousticGuitar.play();
+});
+    
 }
 
 document.getElementById("butt").addEventListener("click",onClick);
