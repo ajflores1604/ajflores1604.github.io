@@ -1,6 +1,7 @@
 
 function handleMotionEvent(event) {
     // console.log('fired motion event')
+    acousticGuitar.play();
     let pan = (event.accelerationIncludingGravity.x * -0.2);
     let x = Math.abs(event.accelerationIncludingGravity.x * 30);
     let y = Math.abs(event.accelerationIncludingGravity.y * .15);
@@ -40,5 +41,5 @@ var stereoPanner = new Pizzicato.Effects.StereoPanner({
 var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
     // Sound loaded!
     acousticGuitar.addEffect(stereoPanner);
-    acousticGuitar.play();
+//     acousticGuitar.play();
 });
