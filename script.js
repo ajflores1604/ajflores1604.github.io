@@ -44,6 +44,7 @@ function onClick() {
         .catch(console.error);
     } else {
       // handle regular non iOS 13+ devices
+        window.addEventListener('devicemotion', handleMotionEvent, true);
         console.log('cry to your fruit overlords');
     }
   }// window.addEventListener('devicemotion', handleMotionEvent, true);
@@ -56,3 +57,6 @@ var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
     acousticGuitar.addEffect(stereoPanner);
 //     acousticGuitar.play();
 });
+
+
+document.getElementById("butt").addeventListener("click",onClick);
