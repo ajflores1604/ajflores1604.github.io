@@ -1,7 +1,7 @@
 
 function handleMotionEvent(event) {
     // console.log('fired motion event')
-    acousticGuitar.play();
+//     acousticGuitar.play();
     let pan = (event.accelerationIncludingGravity.x * -0.2);
     let x = Math.abs(event.accelerationIncludingGravity.x * 30);
     let y = Math.abs(event.accelerationIncludingGravity.y * .15);
@@ -58,5 +58,9 @@ var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
 //     acousticGuitar.play();
 });
 
+function playMusic(){
+    acousticGuitar.play();
+}
 
 document.getElementById("butt").addEventListener("click",onClick);
+document.getElementById("butt").addEventListener("click",playMusic);
