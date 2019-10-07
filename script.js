@@ -49,12 +49,13 @@ function onClick() {
     }
   }// window.addEventListener('devicemotion', handleMotionEvent, true);
 // window.addEventListener('devicelight', handleLightEvent);
-var stereoPanner = new Pizzicato.Effects.StereoPanner({
-    pan: 0.0
-});
+
 
 
 function playMusic(){
+    var stereoPanner = new Pizzicato.Effects.StereoPanner({
+    pan: 0.0
+});
     var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
     // Sound loaded!
     acousticGuitar.addEffect(stereoPanner);
