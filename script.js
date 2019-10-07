@@ -59,4 +59,4 @@ var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
 });
 
 
-document.getElementById("butt").addeventListener("click",onClick);
+document.getElementById("butt").addEventListener("click",onClick);
