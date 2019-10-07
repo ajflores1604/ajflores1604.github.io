@@ -34,6 +34,7 @@ function handleMotionEvent(event) {
 // }
 function onClick() {
     // feature detect
+    Pizzicato.context.resume();
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
       DeviceMotionEvent.requestPermission()
         .then(permissionState => {
@@ -55,7 +56,7 @@ var stereoPanner = new Pizzicato.Effects.StereoPanner({
     pan: 0.0
 });
 function playMusic(){
-    
+    Pizzicato.context.resume();
     var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
     // Sound loaded!
     acousticGuitar.addEffect(stereoPanner);
