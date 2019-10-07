@@ -51,11 +51,11 @@ function onClick() {
 // window.addEventListener('devicelight', handleLightEvent);
 
 
-
-function playMusic(){
-    var stereoPanner = new Pizzicato.Effects.StereoPanner({
+var stereoPanner = new Pizzicato.Effects.StereoPanner({
     pan: 0.0
 });
+function playMusic(){
+    
     var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
     // Sound loaded!
     acousticGuitar.addEffect(stereoPanner);
