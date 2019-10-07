@@ -32,14 +32,21 @@ function handleMotionEvent(event) {
 //     if 
 //     el.style.background = `blue`;
 // }
-DeviceMotionEvent.requestPermission()
-.then(response => {
-  if (response == 'granted') {
-    window.addEventListener('devicemotion', handleMotionEvent, true)
-  }
-})
-.catch(console.error)
-// window.addEventListener('devicemotion', handleMotionEvent, true);
+function onClick() {
+    // feature detect
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('devicemotion', handleMotionEvent, true);
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+        console.log('cry to your fruit overlords');
+    }
+  }// window.addEventListener('devicemotion', handleMotionEvent, true);
 // window.addEventListener('devicelight', handleLightEvent);
 var stereoPanner = new Pizzicato.Effects.StereoPanner({
     pan: 0.0
