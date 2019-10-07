@@ -1,30 +1,44 @@
 
-if (window.DeviceMotionEvent == undefined) {
-	//No accelerometer is present. Use buttons. 
-	document.querySelector("#acc").textContent = "NO";
-	document.querySelector("#acc").className = "no";
+function handleMotionEvent(event) {
+    // console.log('fired motion event')
+    let pan = (event.accelerationIncludingGravity.x * -0.2);
+    let x = Math.abs(event.accelerationIncludingGravity.x * 30);
+    let y = Math.abs(event.accelerationIncludingGravity.y * .15);
+    // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
+    // let z = event.accelerationIncludingGravity.z.toFixed(2);
+
+    x = x.toFixed(0)
+    // y = y.toFixed(0)
+    // z = z.toFixed(0)
+    TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
+    TweenMax.to('#hed', 1, { opacity : `${y}`});
+    TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
+    // stereoPanner.pan = pan;
+    //el.style.background = `hsl(${x},100%,50%)`;
+    // console.log(x, y, z)
+    // if (x > 200) {
+    //     el.innerHTML = 'Direction Change Works!!'
+    // } else {
+    //     el.innerHTML = 'Tween Max Includes'
+    // }
 
 }
-else {
-	document.querySelector("#acc").textContent = "YES";
-	document.querySelector("#acc").className = "yes";
-	window.addEventListener("devicemotion", accelerometerUpdate, true);
-}
+// let el = document.getElementById('text');
 
+// function handleLightEvent(event){
+//     console.log('something happened')
+//     console.log(event.value)
+//     if 
+//     el.style.background = `blue`;
+// }
 
-function accelerometerUpdate(event) {
-   var aX = event.accelerationIncludingGravity.x*10;
-   var aY = event.accelerationIncludingGravity.y*10;
-   var aZ = event.accelerationIncludingGravity.z*10;
-
-	document.querySelector("#x").value = aX;
-	document.querySelector("#y").value = aY;
-	document.querySelector("#z").value = aZ;
-
-	// ix aY is negative, switch rotation
-	if (aY <0) {
-		aX = -aX - 180;
-	}
-	document.querySelector("#block").style.transform="rotate("+aX+"deg)";
-
-}
+window.addEventListener('devicemotion', handleMotionEvent, true);
+// window.addEventListener('devicelight', handleLightEvent);
+var stereoPanner = new Pizzicato.Effects.StereoPanner({
+    pan: 0.0
+});
+var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
+    // Sound loaded!
+    acousticGuitar.addEffect(stereoPanner);
+    acousticGuitar.play();
+});
