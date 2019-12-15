@@ -1,43 +1,26 @@
-<html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluetooth testing</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <button id='trigger'>Click me to launch BLE search</button>
+    <header id = 'hed'>
+        <h1 id = 'text'>Changing Colors</h1>
+    </header>
+    <button id = "butt">Click me</button>
+    <!-- <div class='wrapper'>
+        <h2 id='title'>Changing Colors</h2>
+    </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"
+        integrity="sha256-sRz+dR9unMweZQPOAmSJKY3dHXJ4YJtr5OQaH1IkJdc=" crossorigin="anonymous"></script>
+    <script src='script.js'></script>
 </body>
 
-<script>
-    function onclick(){
-        // alert('button works');
-        if (isWebBLEAvaliable()){
-            getDeviceInfo()
-        }
-    }
-
-    function isWebBLEAvaliable(){
-        if (!navigator.bluetooth){
-            console.log('Web Bluetooth is not Avaliable');
-            return false;
-        }
-        return true;
-    }
-
-    function getDeviceInfo(){
-        let options = {
-            acceptAllDevices: True
-        }
-        console.log('Requesting BLE device info');
-        navigator.bluetooth.requestDevice(options).then(device=>{
-            console.log('Name: ', device.name);
-        }).catch(error => {
-            console.log('Request device error: ' + error);
-        })
-
-    }
-    document.getElementById('trigger').addEventListener('click', onclick);
-    
-</script>
-</html></html>
+</html>
