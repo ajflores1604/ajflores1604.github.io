@@ -1,52 +1,54 @@
 
-// function handleMotionEvent(event) {
-//     let pan = (event.accelerationIncludingGravity.x * -0.2);
-//     let x = Math.abs(event.accelerationIncludingGravity.x * 30);
-//     let y = Math.abs(event.accelerationIncludingGravity.y * .15);
-//     // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
-//     // let z = event.accelerationIncludingGravity.z.toFixed(2);
+function handleMotionEvent(event) {
+    let pan = (event.accelerationIncludingGravity.x * -0.2);
+    let x = Math.abs(event.accelerationIncludingGravity.x * 30);
+    let y = Math.abs(event.accelerationIncludingGravity.y * .15);
+    // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
+    // let z = event.accelerationIncludingGravity.z.toFixed(2);
 
-//     x = x.toFixed(0)
-//     // y = y.toFixed(0)
-//     // z = z.toFixed(0)
-//     TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
-//     TweenMax.to('#hed', 1, { opacity : `${y}`});
-//     TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
-// }
+    x = x.toFixed(0)
+    // y = y.toFixed(0)
+    // z = z.toFixed(0)
+    TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
+    TweenMax.to('#hed', 1, { opacity : `${y}`});
+    TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
+    TweenMax.to(cube.rotation, 1, { x : `${x}`});
 
-// function onClick() {
-//     // feature detect
-//     Pizzicato.context.resume();
-//     if (typeof DeviceMotionEvent.requestPermission === 'function') {
-//       DeviceMotionEvent.requestPermission()
-//         .then(permissionState => {
-//           if (permissionState === 'granted') {
-//             window.addEventListener('devicemotion', handleMotionEvent, true);
-//           }
-//         })
-//         .catch(console.error);
-//     } else {
-//       // handle regular non iOS 13+ devices
-//         window.addEventListener('devicemotion', handleMotionEvent, true);
-//         console.log('cry to your fruit overlords');
-//     }
-//   }
+}
+
+function onClick() {
+    // feature detect
+    Pizzicato.context.resume();
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('devicemotion', handleMotionEvent, true);
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+        window.addEventListener('devicemotion', handleMotionEvent, true);
+        console.log('cry to your fruit overlords');
+    }
+  }
 
 
-// var stereoPanner = new Pizzicato.Effects.StereoPanner({
-//     pan: 0.0
-// });
-// function playMusic(){
-//     Pizzicato.context.resume();
-//     var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
-//     // Sound loaded!
-//     acousticGuitar.addEffect(stereoPanner);
-//     acousticGuitar.play();
-// });
-// }
+var stereoPanner = new Pizzicato.Effects.StereoPanner({
+    pan: 0.0
+});
+function playMusic(){
+    Pizzicato.context.resume();
+    var acousticGuitar = new Pizzicato.Sound('irene.mp3', function () {
+    // Sound loaded!
+    acousticGuitar.addEffect(stereoPanner);
+    acousticGuitar.play();
+});
+}
 
-// document.getElementById("butt").addEventListener("click",onClick);
-// document.getElementById("butt").addEventListener("click",playMusic);
+document.getElementById("butt").addEventListener("click",onClick);
+document.getElementById("butt").addEventListener("click",playMusic);
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
