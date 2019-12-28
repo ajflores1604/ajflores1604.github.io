@@ -13,7 +13,7 @@ function handleMotionEvent(event) {
     TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
     TweenMax.to('#hed', 1, { opacity : `${y}`});
     TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
-    TweenMax.to(cube.rotation, 1, { x : `${cubex}`});
+    TweenMax.to(cube.rotation, 1, { y : `${cubex}`});
 
 }
 
