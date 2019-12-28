@@ -1,7 +1,7 @@
 
 function handleMotionEvent(event) {
     let pan = (event.accelerationIncludingGravity.x * -0.2);
-    let cubex = event.accelerationIncludingGravity.x * 0.01;
+    let cubex = event.accelerationIncludingGravity.x * 1.0;
     let x = Math.abs(event.accelerationIncludingGravity.x * 30);
     let y = Math.abs(event.accelerationIncludingGravity.y * .15);
     // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
@@ -13,7 +13,7 @@ function handleMotionEvent(event) {
     TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
     TweenMax.to('#hed', 1, { opacity : `${y}`});
     TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
-  TweenMax.to(cube.material.color, 1, { setHSL: {cubex, 1,1}});
+  TweenMax.to(cube.material.color, 1, { set: `hsl(0,100%,50%)`});
 
 }
 
