@@ -13,7 +13,7 @@ function handleMotionEvent(event) {
     TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
     TweenMax.to('#hed', 1, { opacity : `${y}`});
     TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
-  TweenMax.to(cube.material, 1, { color: `hsl(${cubex},100%,50%)`});
+  TweenMax.to(cube.material.color, 1, { set: `hsl(${cubex},100%,50%)`});
 
 }
 
