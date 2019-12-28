@@ -13,7 +13,7 @@ function handleMotionEvent(event) {
     TweenMax.to('#text', 1, { color: `hsl(${x},100%,50%)`});
     TweenMax.to('#hed', 1, { opacity : `${y}`});
     TweenMax.to(stereoPanner, 1, { pan : `${pan}`});
-    TweenMax.to(cube.rotation, 1, { y : `${cubex}`});
+  TweenMax.to(cube.material, 1, { color: `hsl(${cubex},100%,50%)`});
 
 }
 
@@ -61,7 +61,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 var geometry = new THREE.BoxGeometry(1, 1, 1);
-var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+var material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
