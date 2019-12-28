@@ -1,6 +1,7 @@
 
 function handleMotionEvent(event) {
     let pan = (event.accelerationIncludingGravity.x * -0.2);
+    let cubex = event.accelerationIncludingGravity.x * 1.0;
     let x = Math.abs(event.accelerationIncludingGravity.x * 30);
     let y = Math.abs(event.accelerationIncludingGravity.y * .15);
     // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
@@ -69,8 +70,8 @@ camera.position.z = 5;
 var animate = function () {
   requestAnimationFrame(animate);
 
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
+  // cube.rotation.x += 0.01;
+  // cube.rotation.y += 0.01;
 
   renderer.render(scene, camera);
 };
