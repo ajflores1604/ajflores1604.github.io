@@ -65,6 +65,9 @@ var material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
+var light = new THREE.AmbientLight(0x404040); // soft white light
+scene.add(light);
+
 camera.position.z = 5;
 
 var animate = function () {
