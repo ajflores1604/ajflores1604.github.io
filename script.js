@@ -19,6 +19,7 @@ function main() {
 
   uniform vec3 iResolution;
   uniform float iTime;
+  uniform float tweak;
 
 float noise(vec2 p, float freq ){
     //float unit = iResolution.x/freq;
@@ -84,7 +85,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         perlin(p+256.0*r + vec2(23.8*-t,37.0*-t), res));
 
     vec3 color = vec3(0.0,0.0,0.0);
-    color = mix(color, vec3(0.6,0.7,0.3), dot(r,r));
+    color = mix(color, vec3(tweak,0.7,0.3), dot(r,r));
     vec3 tmp = vec3(0.9,0.2,0.9) * dot(s,s);
     tmp = tmp*tmp;
     color += tmp;
@@ -108,6 +109,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
   const uniforms = {
     iTime: { value: 0 },
     iResolution:  { value: new THREE.Vector3() },
+    tweak: { type: "f", value: 0.1}
   };
   const material = new THREE.ShaderMaterial({
     fragmentShader,
@@ -145,15 +147,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 
 function handleMotionEvent(event) {
-  let x = Math.abs(event.accelerationIncludingGravity.x * 30);
+  let x = Math.abs(event.accelerationIncludingGravity.x * 1.0);
   // let y = Math.abs(event.accelerationIncludingGravity.y * .15);
   // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
   // let z = event.accelerationIncludingGravity.z.toFixed(2);
 
-  x = x.toFixed(0)
+  // x = x.toFixed(0)
   // y = y.toFixed(0)
   // z = z.toFixed(0)
-  TweenMax.to('#info', 1, { '-webkit-text-stroke-color': `hsl(${x},100%,50%)` });
+  TweenMax.to(material.uniforms.tweak, 1, { value: x });
   // TweenMax.to('#hed', 1, { opacity: `${y}` });
   // stereoPanner.pan = pan;
   //el.style.background = `hsl(${x},100%,50%)`;
