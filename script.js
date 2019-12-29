@@ -145,8 +145,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
   requestAnimationFrame(render);
 
   function handleMotionEvent(event) {
-    let x = Math.abs(event.accelerationIncludingGravity.x * 1.0);
-    console.log(x);
+    let x = Math.abs(event.accelerationIncludingGravity.x * 0.3);
+    // console.log(x);
     // let y = Math.abs(event.accelerationIncludingGravity.y * .15);
     // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
     // let z = event.accelerationIncludingGravity.z.toFixed(2);
