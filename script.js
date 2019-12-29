@@ -145,9 +145,25 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
   requestAnimationFrame(render);
 
   function handleMotionEvent(event) {
-    let x = Math.abs(event.accelerationIncludingGravity.x * 30);
-    x = x.toFixed(0)
-    TweenMax.to('#info', 1, { '-webkit-text-stroke-color': `hsl(${x},100%,50%)` });
+    let x = Math.abs(event.accelerationIncludingGravity.x * 1.0);
+    // let y = Math.abs(event.accelerationIncludingGravity.y * .15);
+    // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
+    // let z = event.accelerationIncludingGravity.z.toFixed(2);
+
+    // x = x.toFixed(0)
+    // y = y.toFixed(0)
+    // z = z.toFixed(0)
+    TweenMax.to(material.uniforms.tweak, 1, { value: x });
+    // TweenMax.to('#hed', 1, { opacity: `${y}` });
+    // stereoPanner.pan = pan;
+    //el.style.background = `hsl(${x},100%,50%)`;
+    // console.log(x, y, z)
+    // if (x > 200) {
+    //     el.innerHTML = 'Direction Change Works!!'
+    // } else {
+    //     el.innerHTML = 'Tween Max Includes'
+    // }
+
   }
   function onClick() {
     // feature detect
@@ -178,44 +194,4 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 main();
  
 
-// function handleMotionEvent(event) {
-//   let x = Math.abs(event.accelerationIncludingGravity.x * 1.0);
-//   // let y = Math.abs(event.accelerationIncludingGravity.y * .15);
-//   // let z = Math.abs(event.accelerationIncludingGravity.z *.09);
-//   // let z = event.accelerationIncludingGravity.z.toFixed(2);
 
-//   // x = x.toFixed(0)
-//   // y = y.toFixed(0)
-//   // z = z.toFixed(0)
-//   TweenMax.to(material.uniforms.tweak, 1, { value: x });
-//   // TweenMax.to('#hed', 1, { opacity: `${y}` });
-//   // stereoPanner.pan = pan;
-//   //el.style.background = `hsl(${x},100%,50%)`;
-//   // console.log(x, y, z)
-//   // if (x > 200) {
-//   //     el.innerHTML = 'Direction Change Works!!'
-//   // } else {
-//   //     el.innerHTML = 'Tween Max Includes'
-//   // }
-
-// }
-
-// function onClick() {
-//   // feature detect
-//   if (typeof DeviceMotionEvent.requestPermission === 'function') {
-//     DeviceMotionEvent.requestPermission()
-//       .then(permissionState => {
-//         if (permissionState === 'granted') {
-//           window.addEventListener('devicemotion', handleMotionEvent, true);
-//         }
-//       })
-//       .catch(console.error);
-//   } else {
-//     // handle regular non iOS 13+ devices
-//     window.addEventListener('devicemotion', handleMotionEvent, true);
-//     console.log('cry to your fruit overlords');
-//   }
-// }
-
-// main();
-// document.getElementById("butt").addEventListener("click", onClick); 
