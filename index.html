@@ -1,28 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>threejs-color-shift</title>
-    <link rel="stylesheet" href="styles.css">
+  <title> Simple Three.js</title>
+
+  <style>
+    body {
+    margin: 0;
+    }
+    #c {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    }
+    #info {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+	color:transparent;
+	font-size:20vh;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+    }
+  </style>
 </head>
-
 <body>
-    <header id = 'hed'>
-        <h1 id = 'text'>Changing Colors</h1>
-    </header>
-    <button id = "butt">Click me</button>
-    <h2 id='overlay'>Hopefully on Top</h2>
-    <!-- <div class='wrapper'>
-        <h2 id='title'>Changing Colors</h2>
-    </div> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.min.js"
-        integrity="sha256-sRz+dR9unMweZQPOAmSJKY3dHXJ4YJtr5OQaH1IkJdc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-    <script src='script.js'></script>
+  <canvas id="c"></canvas>
+  <div id="info">RIPPLS</div>
+  <button id="butt">Click me</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>  
+  <script src="script.js"></script>
 </body>
-
 </html>
+
+
+
+
+
+
