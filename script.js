@@ -24,7 +24,7 @@ function main() {
 
 float noise(vec2 p, float freq ){
     //float unit = iResolution.x/freq;
-    float unit = 600.0/freq; 
+    float unit = 1100.0/freq; 
     vec2 ij = floor(p/unit);
     vec2 xy = mod(p,unit)/unit;
     //xy = 3.*xy*xy-2.*xy*xy*xy;
@@ -43,7 +43,7 @@ float perlin(vec2 p, int res){
     float persistance = tweak_p; 
     float n = 0.; 
     float normK = 0.;
-    float f = 8.; 
+    float f = 5.; 
     float amp = 1.;
     int iCount = 0;
     for (int i = 0; i<50; i++){
