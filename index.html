@@ -50,8 +50,8 @@
             gsap.to('#wrapper', { duration: .5, ease: "back.inOut(2.5)", 'gridTemplateColumns': '30vw 70vw' });
             // document.getElementById('wrapper').style.gridTemplateColumns = '30vw 70vw';
         }
-        document.getElementById('today').addEventListener('click', setToday);
-        document.getElementById('notoday').addEventListener('click', setNoToday);
+        document.getElementById('today').addEventListener('mousedown', setToday);
+        document.getElementById('notoday').addEventListener('mousedown', setNoToday);
     </script>    
 </body>
 </html>
