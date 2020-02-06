@@ -3,55 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zune_todo</title>
-    <style>
-        :root{
-            --focus-today: 70vw 30vw;
-            --focus-notoday: 30vw 70vw;
-        }
-        body{
-            margin: 0;
-            overflow: hidden;
-        }
-        #wrapper {
-            display:grid;
-            grid-template-columns: var(--focus-notoday);
-            height: 100vh;
-            transition: 1s;
-        }
-        .item {
-            /* transition: 1s; */
-        }
-        #today {
-            background: red;
-        
-        }
-        #notoday {
-            background: blue;
-        }
-    </style>
+    <title>speed</title>
 </head>
 <body>
-    <div id='wrapper'>
-        <div class='item' id='today'></div>
-        <div class='item' id='notoday'></div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/gsap.min.js"></script>
+    <p id="speedometer">Current speed</p>
 
     <script>
-        function setToday(){
-            gsap.to('#wrapper',{duration:.5, ease: "back.inOut(2.5)",'gridTemplateColumns':'70vw 30vw'});
-            // document.getElementById('wrapper').style.gridTemplateColumns = '70vw 30vw';
-            // document.getElementById('today').style.background = 'green';
-        }
+        speedOut = document.getElementById('speedometer');
 
-        function setNoToday(){
-            gsap.to('#wrapper', { duration: .5, ease: "back.inOut(2.5)", 'gridTemplateColumns': '30vw 70vw' });
-            // document.getElementById('wrapper').style.gridTemplateColumns = '30vw 70vw';
-        }
-        document.getElementById('today').addEventListener('pointerdown', setToday);
-        document.getElementById('notoday').addEventListener('pointerdown', setNoToday);
-    </script>    
+        navigator.geolocation.watchPosition((data) =>{
+            speedOut.innerText = data.coords.speed;
+        })
+    </script>
+    
 </body>
 </html>
